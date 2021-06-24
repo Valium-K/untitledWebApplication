@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@Getter @Setter(AccessLevel.PROTECTED)
+@Getter @Setter
 public class Member {
 
     @Id @GeneratedValue

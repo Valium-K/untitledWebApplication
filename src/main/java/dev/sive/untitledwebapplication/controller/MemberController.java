@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
@@ -35,5 +37,10 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @GetMapping("/members/")
+    @GetMapping("/members/list")
+    public String list(Model model) {
+        List<Member> members = memberService.findAll();
+        model.addAttribute("members", members);
+        return "/members/printAllMembers";
+    }
 }

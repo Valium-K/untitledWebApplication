@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Repository
 @Transactional(readOnly = true)
@@ -25,4 +29,9 @@ public class MemberH2Repository implements MemberRepository {
         return entityManager.find(Member.class, id);
     }
 
+    @Override
+    public List<Member> findAll() {
+        String qlString = "select m from Member as m";
+        return entityManager.createQuery(qlString, Member.class).getResultList();
+    }
 }
