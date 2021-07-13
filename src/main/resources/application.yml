@@ -15,3 +15,8 @@ spring:
 logging:
   level:
     org.hibernte.SQL: debug   # JPA / Hibernate 가 생성하는 디버그단 로깅
+
+server:
+  port: 8080
+  servlet:
+    context-path: /spring
