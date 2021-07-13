@@ -5,8 +5,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-resorces/keystore.p12
-resorces/application.yml
+src/main/resorces/keystore.p12
+src/main/resorces/application.yml
 
 ### STS ###
 .apt_generated
