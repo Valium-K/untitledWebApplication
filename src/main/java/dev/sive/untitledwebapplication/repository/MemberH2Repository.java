@@ -34,4 +34,13 @@ public class MemberH2Repository implements MemberRepository {
         String qlString = "select m from Member as m";
         return entityManager.createQuery(qlString, Member.class).getResultList();
     }
+
+    @Override
+    public Member findByName(String name) {
+        Member foundMember = entityManager.createQuery("select m from Member as m where m.name=:name", Member.class)
+                .setParameter("name", name)
+                .getSingleResult();
+
+        return foundMember;
+    }
 }

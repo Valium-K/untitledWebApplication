@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -42,5 +43,14 @@ public class MemberController {
         List<Member> members = memberService.findAll();
         model.addAttribute("members", members);
         return "members/printAllMembers";
+    }
+
+    @GetMapping("/members/printInfo")
+    public String printInfo(HttpServletRequest request, Model model) {
+        Member user1 = (Member) request.getSession().getAttribute("user1");
+
+        model.addAttribute("member", user1);
+
+        return "members/printMemberInfo";
     }
 }
